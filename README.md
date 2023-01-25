@@ -1,25 +1,32 @@
 # Bleach Brave Souls Tracker
 
+This CRUD Application is an organizer to help me track the numerous amount of characters that I have collected in Bleach Brave Souls, which is a game I recently started playing based off a popular Anime that I enjoy.
+
+ ---
 ## MVP
-![alt Bleach Battle Data MVP/V1](insert image source here)
+![alt Bleach Battle Data MVP/V1](./assets/bbs_wireframe.jpeg)
+
  ---
 ### Version 1.0
 - As a user, I want to be able to sign up.
 - As a user, I want to be able to sign in.
 - As a user, I want to be able to add Characters to Track.
 - As a user, I want to be able to see the Characters I just Added.
-- As a user, I want to be able to edit these Characters I Added.
-- As a user, I also want the option to Remove a Character I Added.
-- As a user, I want to see a Character's Links.
+- As a user, I want to be able to update these Characters I Added.
+- As a user, I want the option to Remove Characters I Added.
+- As a user, I want to see a Character's Links. (Array of Strings)
+
+- As a user, I want to add any Accessories my Character has equipped.
 - As a user, I want to see a Character's Accessories.
+- As a user, I want to be able to update these Accessories I Added.
+- As a user, I want the option to Remove Accessories I Added.
 
 ## FUTURE UPDATES
 
 ### Version 2.0
-- As a user, I want another button to show more information about my Character's Links & Accessories.
-- As a user, I want to be able to filter the list of Characters I Added.
+- As a user, I want a Search Bar.
+- As a user, I want a way to Filter the list of Characters I Added through Tabs.
 
 ### Version 3.0
-- As a user, I want some drop down menus instead for some of my fields.
-- As a user, I want these fields that were picked from the drop down menu to instantiate an image to give a better representation of what's been picked.
-
+- As a user, I want some of these fields to have a drop down menu instead of manually entering in the Data.
+- As a user, I want some of these fields that were picked from the drop down menu to instantiate an image to give a better representation of what has been picked.
