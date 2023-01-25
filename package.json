@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
+  },
+  "name": "bleach-brave-souls-tracker-server",
+  "description": "This CRUD Application is an organizer to help me track the numerous amount of characters that I have collected in Bleach Brave Souls, which is a game I recently started playing based off a popular Anime that I enjoy.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Speckoh/bleach-brave-souls-tracker-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Speckoh/bleach-brave-souls-tracker-server/issues"
+  },
+  "homepage": "https://github.com/Speckoh/bleach-brave-souls-tracker-server#readme"
+}

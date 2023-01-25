@@ -1,0 +1,5 @@
+const express = require('express')
+const router = express.Router()
+const Character = require('../models/character')
+const { handle404 } = require('../lib/custom-errors')
+const { requireToken } = require('../config/auth')
