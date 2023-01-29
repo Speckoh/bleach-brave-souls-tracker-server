@@ -20,7 +20,7 @@ router.get('/characters', (req, res, next) => {
 router.get('/characters/:id', (req, res, next) => {
     Character.findById(req.params.id)
     //Handle404 Insert Below findById
-    .then(handle404)
+    //.then(handle404)
     .then(character => {
         res.status(200).json({ character: character })
     })
@@ -50,7 +50,7 @@ router.patch('/characters/:id', (req, res, next) => {
 router.delete('/characters/:id', (req, res, next) => {
     Character.findById(req.params.id)
     //Handle404 Insert Below findById
-    .then(handle404)
+    // .then(handle404)
     .then(character => {
         return character.deleteOne()
     })

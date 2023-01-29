@@ -4,20 +4,11 @@ const accessorySchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: true,
+			default: '',
 		},
-        attribute: {
-			type: String,
-			required: true,
-		},
-        effect: {
-			type: String,
-			required: true,
-		},
-        bonus: {
-			type: String,
-			required: false,
-		},
+        attribute: String,
+        effect: String,
+        bonus: String,
 	},
 	{
 		timestamps: true,
@@ -34,18 +25,38 @@ const characterSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		killer: [String],
+		killer: {
+			type: String,
+			required: true,
+		},
 		soulTrait: {
 			type: String,
 			required: true,
 		},
         accessories: [accessorySchema],
         characterLinks: [String],
-        slotLvls: [{
-            type: Number,
-            default: 0,
-            max: 20,
-        }],
+        slot1Lvls: {
+			type: Number,
+			min: 0,
+			max: 20,
+			default: 0
+		},
+		slot2Lvls: {
+			type: Number,
+			min: 0,
+			max: 20,
+			default: 0
+		},
+		slot3Lvls: {
+			type: Number,
+			min: 0,
+			max: 20,
+			default: 0
+		},
+		slotLvls: {
+			type: String,
+			default: '0/0/0'
+		}
 	},
 	{
 		timestamps: true,
