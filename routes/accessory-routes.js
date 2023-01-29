@@ -37,11 +37,11 @@ router.patch('/accessories/:accessoryId', (req, res, next) => {
 //DELETE
 router.delete('/accessories/:accessoryId', (req, res, next) => {
     const characterId = req.body.accessory.characterId
-
 	Character.findById(characterId)
 		// .then(handle404)
 		.then((character) => {
 			character.accessories.id(req.params.accessoryId).remove()
+            console.error()
 			return character.save()
 		})
 		.then(() => res.sendStatus(204))
