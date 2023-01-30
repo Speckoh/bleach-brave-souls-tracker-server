@@ -56,6 +56,10 @@ const characterSchema = new mongoose.Schema(
 		slotLvls: {
 			type: String,
 			default: '0/0/0'
+		},
+		owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
 		}
 	},
 	{

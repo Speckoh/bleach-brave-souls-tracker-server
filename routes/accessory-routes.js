@@ -3,6 +3,7 @@ const express = require('express')
 const Character = require('../models/character')
 const router = express.Router()
 const { handle404 } = require('../lib/custom-errors')
+const { requireToken } = require('../config/auth')
 
 //CREATE - POST
 router.post('/accessories', (req, res, next) => {

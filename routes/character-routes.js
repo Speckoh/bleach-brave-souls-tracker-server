@@ -1,7 +1,8 @@
 const express = require('express')
-
+const { handle404 } = require('../lib/custom-errors')
 //Character is the ENTITY
 const Character = require('../models/character')
+const { requireToken } = require('../config/auth')
 const router = express.Router()
 
 //INDEX
@@ -20,7 +21,7 @@ router.get('/characters', (req, res, next) => {
 router.get('/characters/:id', (req, res, next) => {
     Character.findById(req.params.id)
     //Handle404 Insert Below findById
-    //.then(handle404)
+    .then(handle404)
     .then(character => {
         res.status(200).json({ character: character })
     })
@@ -29,6 +30,9 @@ router.get('/characters/:id', (req, res, next) => {
 
 //CREATE - POST
 router.post('/characters', (req, res, next) => {
+    // console.log(req.user)
+    // req.body.character.owner = req.user._id
+    // console.log(req.body)
     Character.create(req.body.character)
     .then(character => {
         res.status(201).json({ character: character })
