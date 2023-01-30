@@ -6,7 +6,7 @@ const { handle404 } = require('../lib/custom-errors')
 const { requireToken } = require('../config/auth')
 
 //CREATE - POST
-router.post('/accessories', (req, res, next) => {
+router.post('/accessories', requireToken, (req, res, next) => {
     const characterId = req.body.accessory.characterId
     const accessory = req.body.accessory
 	Character.findById(characterId)
@@ -22,7 +22,7 @@ router.post('/accessories', (req, res, next) => {
 })
 
 //UPDATE - PATCH
-router.patch('/accessories/:accessoryId', (req, res, next) => {
+router.patch('/accessories/:accessoryId', requireToken, (req, res, next) => {
     const characterId = req.body.accessory.characterId
     const accessoryBody = req.body.accessory
     Character.findById(characterId)
@@ -36,7 +36,7 @@ router.patch('/accessories/:accessoryId', (req, res, next) => {
 })
 
 //DELETE
-router.delete('/accessories/:accessoryId', (req, res, next) => {
+router.delete('/accessories/:accessoryId', requireToken, (req, res, next) => {
     const characterId = req.body.accessory.characterId
 	Character.findById(characterId)
 		// .then(handle404)
