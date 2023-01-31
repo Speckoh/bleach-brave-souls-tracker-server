@@ -10,7 +10,7 @@ const accessoryRoutes = require('./routes/accessory-routes')
 const requestLogger = require('./lib/request-logger')
 const characterSeed = require('./lib/character-seed')
 const userRoutes = require('./routes/user-routes')
-const PORT = 8005
+const PORT = process.env.PORT || 8005
 //deprecation warning
 mongoose.set('strictQuery', true)
 
@@ -21,7 +21,7 @@ mongoose.connect(db, {
 
 const app = express()
 
-app.use(cors({origin: `http://127.0.0.1:5501`}))
+app.use(cors({origin: process.env.CLIENT_ORIGIN || `http://127.0.0.1:5501`}))
 app.use(express.json())
 app.use(requestLogger)
 app.use(characterRoutes)
