@@ -25,7 +25,9 @@ router.post('/sign-in', (req, res, next) => {
 	User.findOne({ email: req.body.credentials.email })
 		.then((user) => createUserToken(req, user))
 		.then((token) => res.json({ token: token }))
+		
 		.catch(next)
+		
 });
 
 module.exports = router
