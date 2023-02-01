@@ -3,11 +3,12 @@ const { handle404 } = require('../lib/custom-errors')
 //Character is the ENTITY
 const Character = require('../models/character')
 const { requireToken } = require('../config/auth')
+const User = require('../models/user')
 const router = express.Router()
 
 //INDEX
 router.get('/characters', requireToken, (req, res, next) => {
-    Character.find()
+    Character.find( {user: req.user._id} )
     .then(characters => {
         return characters.map(character => character)
     })
@@ -16,7 +17,6 @@ router.get('/characters', requireToken, (req, res, next) => {
     })
     .catch(next)
 })
-
 //SHOW - GET
 router.get('/characters/:id', requireToken, (req, res, next) => {
     Character.findById(req.params.id)
@@ -30,12 +30,11 @@ router.get('/characters/:id', requireToken, (req, res, next) => {
 
 //CREATE - POST
 router.post('/characters', requireToken, (req, res, next) => {
-    // console.log(req.user)
-    // req.body.character.owner = req.user._id
-    // console.log(req.body)
     Character.create(req.body.character)
     .then(character => {
+        character.user = req.user._id
         res.status(201).json({ character: character })
+        return character.save()
     })
     .catch(next)
 })
@@ -44,6 +43,7 @@ router.post('/characters', requireToken, (req, res, next) => {
 router.patch('/characters/:id', requireToken, (req, res, next) => {
     Character.findById(req.params.id)
     .then(character => {
+        console.log(character)
         return character.updateOne(req.body.character)
     })
     .then(() => res.sendStatus(204))

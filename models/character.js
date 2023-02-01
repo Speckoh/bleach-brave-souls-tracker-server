@@ -57,7 +57,7 @@ const characterSchema = new mongoose.Schema(
 			type: String,
 			default: '0/0/0'
 		},
-		owner: {
+		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
 		}
