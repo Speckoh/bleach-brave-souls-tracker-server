@@ -3,26 +3,34 @@
 This CRUD Application is an organizer to help me track the numerous amount of characters that I have collected in Bleach Brave Souls, which is a game I recently started playing based off a popular Anime that I enjoy.
 
  ---
-## WireFrames & ERD
-![alt Bleach Battle Data MVP/V1](./assets/bbs_wireframe.jpeg)
+## Entity Relationship Diagram
+![alt Bleach Battle Data MVP/V1](./assets/Crud_ERD.jpeg)
 
  ---
-## MVP
 
-### Version 1.0
-- As a user, I want to be able to Sign Up.
-- As a user, I want to be able to Sign In.
-- As a user, I want to be able to Add Characters to Track.
-- As a user, I want to be able to See the Characters I just Added.
-- As a user, I want to be able to Update these Characters I Added.
-- As a user, I want the option to Remove Characters I Added.
-- As a user, I want to see a Character's Links. (Array of Strings)
+|    NAME    |              PATH             |     ACTION    |                 PURPOSE                 |
+| ---------- | ----------------------------- | ------------- | --------------------------------------- |
+|   Create   |  /characters                  |   POST        | Creates an Entry                        |
+|   Index    |  /characters                  |   GET         | Shows All Entries Added on Main Page    |
+|   Show     |  /characters/:id              |   GET         | Used to Refresh When Updating           |
+|   Update   |  /characters/:id              |   PATCH       | Updates an Entry                        |
+|   Delete   |  /characters/:id              |   DELETE      | Deletes an Entry                        |
+|   Create   |  /accessories                 |   POST        | Creates an Accessory in an Empty Slot   |
+|   Update   |  /accessories/:accessoryId    |   PATCH       | Updates or Clears an Accessory          |
+|   Create   |  /sign-up                     |   POST        | Create a New User                       |
+|   Create   |  /sign-in                     |   POST        | Generates a Token for an Existing User  |
 
-- As a user, I want to Add any Accessories to my Character.
-- As a user, I want to See a Character's Accessories.
-- As a user, I want to be able to Update these Accessories.
-- As a user, I want the option to Remove Accessories from my Character.
+---
+## Languages & Tools
 
+What was used:
+- Javascript
+- HTML
+- CSS
+- Photoshop
+- Node.js, MongoDB, Mongoose, Express, Cors, Bcrypt, JSON Web Token, Passport-JWT 
+
+---
 ## FUTURE UPDATES
 
 ### Version 2.0
