@@ -1,6 +1,6 @@
 # Bleach Brave Souls Tracker
 
-This CRUD Application is an organizer to help me track the numerous amount of characters that I have collected in Bleach Brave Souls, which is a game I recently started playing based off a popular Anime that I enjoy.
+This application is an organizer to help fans of Bleach Brave Souls track the numerous amount of characters that they have collected.
 
  ---
 ## Entity Relationship Diagram
