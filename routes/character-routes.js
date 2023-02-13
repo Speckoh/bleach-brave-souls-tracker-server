@@ -5,7 +5,7 @@ const Character = require('../models/character')
 const { requireToken } = require('../config/auth')
 const User = require('../models/user')
 const router = express.Router()
-
+// unused import User
 //INDEX
 router.get('/characters', requireToken, (req, res, next) => {
     Character.find( {user: req.user._id} )
@@ -34,7 +34,7 @@ router.post('/characters', requireToken, (req, res, next) => {
     .then(character => {
         character.user = req.user._id
         res.status(201).json({ character: character })
-        return character.save()
+        return character.save() // we should be careful about trying to do anything after we send a response in express, do the save before the res. 
     })
     .catch(next)
 })
@@ -43,7 +43,7 @@ router.post('/characters', requireToken, (req, res, next) => {
 router.patch('/characters/:id', requireToken, (req, res, next) => {
     Character.findById(req.params.id)
     .then(character => {
-        console.log(character)
+        console.log(character)// this route is not yet testing if a user is authorized, just that they are authenticated
         return character.updateOne(req.body.character)
     })
     .then(() => res.sendStatus(204))
@@ -55,7 +55,7 @@ router.delete('/characters/:id', requireToken, (req, res, next) => {
     Character.findById(req.params.id)
     //Handle404 Insert Below findById
     // .then(handle404)
-    .then(character => {
+    .then(character => {// see 46
         return character.deleteOne()
     })
     .then(() => res.sendStatus(204))
