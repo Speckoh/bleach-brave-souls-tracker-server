@@ -16,7 +16,7 @@ router.post('/sign-up', (req, res, next) => {
 			})
 		)
 		.then((user) => User.create(user))
-		.then((user) => res.status(201).json(user))
+		.then((user) => res.status(201).json({ user: user }))
 		.catch(next)
 })
 
