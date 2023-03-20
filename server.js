@@ -21,8 +21,8 @@ mongoose.connect(db, {
 
 const app = express()
 
-app.use(cors({origin: process.env.CLIENT_ORIGIN || `http://127.0.0.1:5501`}))
 app.use(express.json())
+app.use(cors({origin: process.env.CLIENT_ORIGIN || `http://127.0.0.1:3000`}))
 app.use(requestLogger)
 app.use(characterRoutes)
 app.use(accessoryRoutes)
